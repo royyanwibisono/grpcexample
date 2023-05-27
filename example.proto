@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package example;
+
+// run python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. example.proto
+
+service MyService {
+  rpc SayHello (HelloRequest) returns (HelloResponse) {}
+  rpc GetUser (UserRequest) returns (UserResponse) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
+message UserRequest {
+  int32 id = 1;
+}
+
+message UserResponse {
+  string name = 1;
+  repeated Email email = 2;
+  
+  message Email {
+    string address = 1;
+    bool is_primary = 2;
+  }
+  
+  oneof contact {
+    string phone_number = 3;
+    string social_media = 4;
+  }
+}
