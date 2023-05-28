@@ -15,6 +15,11 @@ def run():
     for email in user_response.email:
         print("Email Address:", email.address)
         print("Is Primary:", email.is_primary)
+    if user_response.HasField("contact"):
+        if user_response.contact.HasField("phone_number"):
+            print("Phone Number:", user_response.contact.phone_number)
+        elif user_response.contact.HasField("social_media"):
+            print("Social Media:", user_response.contact.social_media)
 
 if __name__ == '__main__':
     run()

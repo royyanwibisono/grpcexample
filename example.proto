@@ -30,8 +30,12 @@ message UserResponse {
     bool is_primary = 2;
   }
   
-  oneof contact {
-    string phone_number = 3;
-    string social_media = 4;
+  message Contact {
+    oneof contact_type {
+      string phone_number = 1;
+      string social_media = 2;
+    }
   }
+  
+  Contact contact = 3;
 }

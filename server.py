@@ -11,13 +11,7 @@ class MyServiceServicer(example_pb2_grpc.MyServiceServicer):
     def GetUser(self, request, context):
         # Assuming we have a function to retrieve user information based on the ID
         user = get_user_by_id(request.id)
-        user_response = example_pb2.UserResponse()
-        user_response.name = user.name
-        for email in user.email:
-            email_proto = user_response.email.add()
-            email_proto.address = email.address
-            email_proto.is_primary = email.is_primary
-        return user_response
+        return user
 
 def get_user_by_id(user_id):
     # Assuming implementation to retrieve user information
@@ -30,14 +24,22 @@ def get_user_by_id(user_id):
             "email": [
                 {"address": "john.doe@example.com", "is_primary": True},
                 {"address": "johndoe@gmail.com", "is_primary": False}
-            ]
+            ],
+            "contact": {
+                "type": "phone_number",
+                "value": "1234567890"
+            }
         },
         2: {
             "name": "Jane Smith",
             "email": [
                 {"address": "jane.smith@example.com", "is_primary": True},
                 {"address": "janesmith@gmail.com", "is_primary": False}
-            ]
+            ],
+            "contact": {
+                "type": "social_media",
+                "value": "@janesmith"
+            }
         }
     }
 
@@ -50,9 +52,18 @@ def get_user_by_id(user_id):
             email = user.email.add()
             email.address = email_data["address"]
             email.is_primary = email_data["is_primary"]
+        if "contact" in user_data:
+            contact_data = user_data["contact"]
+            contact = user.contact
+            if "type" in contact_data:
+                if contact_data["type"] == "phone_number":
+                    contact.phone_number = contact_data["value"]
+                elif contact_data["type"] == "social_media":
+                    contact.social_media = contact_data["value"]
         return user
     else:
         raise Exception("User not found")
+
 
 
 def serve():

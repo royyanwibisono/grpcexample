@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rexample.proto\x12\x07\x65xample\"\x1c\n\x0cHelloRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\" \n\rHelloResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x19\n\x0bUserRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\xb1\x01\n\x0cUserResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12*\n\x05\x65mail\x18\x02 \x03(\x0b\x32\x1b.example.UserResponse.Email\x12\x16\n\x0cphone_number\x18\x03 \x01(\tH\x00\x12\x16\n\x0csocial_media\x18\x04 \x01(\tH\x00\x1a,\n\x05\x45mail\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x12\n\nis_primary\x18\x02 \x01(\x08\x42\t\n\x07\x63ontact2\x82\x01\n\tMyService\x12;\n\x08SayHello\x12\x15.example.HelloRequest\x1a\x16.example.HelloResponse\"\x00\x12\x38\n\x07GetUser\x12\x14.example.UserRequest\x1a\x15.example.UserResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rexample.proto\x12\x07\x65xample\"\x1c\n\x0cHelloRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\" \n\rHelloResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x19\n\x0bUserRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\xf1\x01\n\x0cUserResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12*\n\x05\x65mail\x18\x02 \x03(\x0b\x32\x1b.example.UserResponse.Email\x12.\n\x07\x63ontact\x18\x03 \x01(\x0b\x32\x1d.example.UserResponse.Contact\x1a,\n\x05\x45mail\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x12\n\nis_primary\x18\x02 \x01(\x08\x1aI\n\x07\x43ontact\x12\x16\n\x0cphone_number\x18\x01 \x01(\tH\x00\x12\x16\n\x0csocial_media\x18\x02 \x01(\tH\x00\x42\x0e\n\x0c\x63ontact_type2\x82\x01\n\tMyService\x12;\n\x08SayHello\x12\x15.example.HelloRequest\x1a\x16.example.HelloResponse\"\x00\x12\x38\n\x07GetUser\x12\x14.example.UserRequest\x1a\x15.example.UserResponse\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'example_pb2', globals())
@@ -27,9 +27,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USERREQUEST._serialized_start=90
   _USERREQUEST._serialized_end=115
   _USERRESPONSE._serialized_start=118
-  _USERRESPONSE._serialized_end=295
+  _USERRESPONSE._serialized_end=359
   _USERRESPONSE_EMAIL._serialized_start=240
   _USERRESPONSE_EMAIL._serialized_end=284
-  _MYSERVICE._serialized_start=298
-  _MYSERVICE._serialized_end=428
+  _USERRESPONSE_CONTACT._serialized_start=286
+  _USERRESPONSE_CONTACT._serialized_end=359
+  _MYSERVICE._serialized_start=362
+  _MYSERVICE._serialized_end=492
 # @@protoc_insertion_point(module_scope)
